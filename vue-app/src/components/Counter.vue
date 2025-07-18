@@ -1,16 +1,16 @@
 <template>
-  <div class="counter-box">
-    <p class="counter-value">Giá trị: <span>{{ count }}</span></p>
+  <div class="counter-box" id="counter">
+    <p class="counter-value" id="counter-value">Giá trị: <span>{{ count }}</span></p>
     <div class="counter-controls">
-      <button @click="increment">Tăng</button>
-      <button @click="decrement">Giảm</button>
-      <button @click="resetCount" class="reset-btn">Đặt lại</button>
+      <button @click="increment" id="counter-increment">Tăng</button>
+      <button @click="decrement" id="counter-decrement">Giảm</button>
+      <button @click="resetCount" class="reset-btn" id="counter-reset">Đặt lại</button>
     </div>
     <div class="counter-info">
       <p class="counter-info-title">Thông tin:</p>
       <div class="counter-details">
-        <p class="counter-double">Gấp đôi: <span>{{ doubled }}</span></p>
-        <p class="counter-half">Một nửa: <span>{{ half }}</span></p>
+        <p class="counter-double" id="counter-double">Gấp đôi: <span>{{ doubled }}</span></p>
+        <p class="counter-half" id="counter-half">Một nửa: <span>{{ half }}</span></p>
       </div>
     </div>
   </div>

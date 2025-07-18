@@ -1,5 +1,5 @@
 <template>
-  <p class="hello-user">Xin chào, <span class="user-name" v-bind="$attrs">{{ name }}</span>!</p>
+  <p class="hello-user" id="hello-user"><span class="user-name" v-bind="$attrs" id="hello-username">{{ name }}</span>!</p>
 </template>
 
 <script>

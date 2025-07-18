@@ -31,20 +31,20 @@ const openModal = (slide) => {
 
 <template>
   <!-- Swiper hiển thị các slide, mỗi slide là một ảnh thumb -->
-  <Swiper :slides-per-view="1" :centered-slides="true" space-between="16" grab-cursor="true" class="my-swiper">
-    <SwiperSlide v-for="slide in slides" :key="slide.id" class="slide-item">
+  <Swiper :slides-per-view="1" :centered-slides="true" space-between="16" grab-cursor="true" class="my-swiper" id="slide-swiper">
+    <SwiperSlide v-for="slide in slides" :key="slide.id" class="slide-item" :id="`slide-item-${slide.id}`">
       <!-- Bọc ảnh và box info trong 1 div để căn giữa và xử lý hover -->
     <div class="slide-item">
       <div class="thumb-wrapper" @mouseenter="hoveredId = slide.id" @mouseleave="hoveredId = null">
         <img
           :src="slide.thumb"
+          :alt="slide.title"
           class="thumb-img"
+          :id="`thumb-img-${slide.id}`"
           @click="openModal(slide)"
-          @mouseenter="hoveredId = slide.id"
-          @mouseleave="hoveredId = null"
         />
         <transition name="fade">
-          <div v-if="hoveredId === slide.id" class="thumb-info">
+          <div v-if="hoveredId === slide.id" class="thumb-info" :id="`thumb-info-${slide.id}`">
             Mặc cảm là khi bạn luôn thấy mình thấp kém, không đủ tốt, không xứng đáng với tình yêu hay thành công. Bạn né tránh ánh nhìn của người khác, sợ bị đánh giá, và luôn thu mình trong vỏ bọc an toàn.
 
 Hệ quả: Bạn tự giới hạn bản thân, đánh mất nhiều cơ hội và dần quên mất con người thật sự bên trong mình.
@@ -58,9 +58,9 @@ Giải pháp: Nâng Tầm giúp bạn nhìn lại gốc rễ cảm giác “khô
   </Swiper>
 
   <!-- Modal pop-up hiển thị video khi click vào thumb -->
-  <div v-if="showModal" class="modal-overlay" @click.self="showModal = false">
-    <div class="modal-box">
-      <video v-if="selectedSlide" :src="selectedSlide.src" controls playsinline preload="metadata" class="video-player" />
+  <div v-if="showModal" class="modal-overlay" id="slide-modal-overlay" @click.self="showModal = false">
+    <div class="modal-box" id="slide-modal-box">
+      <video v-if="selectedSlide" :src="selectedSlide.src" controls playsinline preload="metadata" class="video-player" :id="`slide-video-${selectedSlide.id}`" />
     </div>
   </div>
 </template>

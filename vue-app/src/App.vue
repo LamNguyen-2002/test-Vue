@@ -1,31 +1,34 @@
 <!-- File src/App.vue -->
 <template>
-  <div class="app">
-    <h1 class="main-title">{{ title }}</h1>
-    <div class="card">
-      <HelloUser :name="userName" :class="{highlighted: userName.trim() !== ''}" />
+  <div class="app" id="app-root">
+    <h1 class="main-title" id="main-title">{{ title }}</h1>
+    <div class="card" id="hello-user">
+      <HelloUser :name="userName" :class="{highlighted: userName.trim() !== ''}" id="hello-user-component"/>
     </div>
-    <div class="card">
+    <div class="card" id="user-picker">
       <div class="user-picker">
         <p class="user-picker-label">Chọn tên người dùng:</p>
         <div class="user-picker-list">
-          <button v-for="user in users" :key="user" @click="userName = user" :class="['user-btn', {active: userName === user}]">{{ user }}</button>
+          <button v-for="user in users" :key="user" @click="userName = user" :class="['user-btn', {active: userName === user}]" :id="`user-btn-${user}`">{{ user }}</button>
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" id="slide-section">
       <Slide />
     </div>
-    <div class="card">
+    <div class="card" id="counter-section">
       <Counter />
     </div>
-    <div class="card">
-      <SlotExample>
+    <div class="card" id="user-list-section">
+      <UserList :users="users" />
+    </div>
+    <div class="card" id="slot-section">
+      <SlotExample id="slot-box">
         <template v-slot:header>
-          <h2>Tiêu đề do cha định nghĩa</h2>
+          <h2 id="slot-header">Tiêu đề do cha định nghĩa</h2>
         </template>
-        <p>Nội dung chính ở giữa component con</p>
-        <PopUp />
+        <p id="slot-main">Nội dung chính ở giữa component con</p>
+        <PopUp id="popup-section" />
       </SlotExample>
     </div>
   </div>

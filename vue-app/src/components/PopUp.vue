@@ -1,16 +1,16 @@
 <template>
   <div>
     <!-- Nút mở modal -->
-    <button @click="showModal = true" class="open-btn">Mở Pop-up</button>
+    <button @click="showModal = true" class="open-btn" id="popup-open">Mở Pop-up</button>
 
     <!-- Modal -->
-    <div v-if="showModal" class="modal-overlay" @click.self="showModal = false">
-      <div class="modal-box">
+    <div v-if="showModal" class="modal-overlay" id="popup-overlay" @click.self="showModal = false">
+      <div class="modal-box" id="popup-box">
         <h2>Đây là pop-up</h2>
         <video controls>
           <source src="@/assets/video.mp4" type="video/mp4">
         </video>
-        <button @click="showModal = false" class="close-btn">Đóng</button>
+        <button @click="showModal = false" class="close-btn" id="popup-close">Đóng</button>
       </div>
     </div>
   </div>
